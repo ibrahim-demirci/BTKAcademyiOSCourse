@@ -1,7 +1,24 @@
 import UIKit
 
-var myNum = 10 * 5
+var name = "İbrahim"
+var surname = "Demirci"
 
-20 + 10
+name = "Changed as ibrahim"
+print(name)
+
+// Comment Line
+
+var phoneNumber = "test"
+var dataFromServer = 50
+var data_from_server = 50
+
+
+
+
+
+
+
+
+
 
 
