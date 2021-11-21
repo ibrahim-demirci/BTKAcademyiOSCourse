@@ -1,3 +1,7 @@
 import UIKit
 
-var greeting = "Hello, playground"
+var myNum = 10 * 5
+
+20 + 10
+
+
