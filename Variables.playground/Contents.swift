@@ -53,7 +53,37 @@ var myBoolean = true
 myBoolean = false
 
 
+var  myNum : Int = 50
+myNum = 5000000000
 
+let myDouble : Float = 3.14
+
+
+// Defining
+let myString : String
+
+// Initialization
+myString = "Atil"
+
+var newNumber :Int
+
+// newNumber = "Jack"   | Fail
+
+newNumber = 55
+let myStringNum : String
+myStringNum = String(newNumber)
+
+myStringNum + "10"
+
+
+
+let stringNo = 400
+let integerString = Int(stringNo)
+
+integerString + 20
+
+
+ 
 
 
 
