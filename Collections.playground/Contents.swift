@@ -3,6 +3,8 @@ import UIKit
 
 // Collections
 
+
+// Arrays
 var firstArray = ["Atil","Zeynep","Mehmet","Hülya"]
 
 // Index
@@ -29,3 +31,22 @@ numArray.sort()
 
 var letterArray = ["a","j","o"]
 letterArray.sort()
+
+
+// Set
+
+var nums = [1,1,1,1,1,1,2,3,4,5,6]
+
+var numSet:Set = [1,1,1,1,1,2,3,4,5,6]
+numSet.remove(3)
+
+
+var ordersArray = ["istanbul","ankara","adana","adana","istanbul"]
+var ordersSet = Set(ordersArray)
+ordersSet.count
+
+let firstSet :Set = [40,50,60]
+let secondSet :Set = [50,60,70]
+
+
+let migratedSet = firstSet.union(secondSet)
