@@ -13,7 +13,7 @@ import UIKit
 
 
 var x = 0
-
+ 
 x = x + 1
 x += 1
 
@@ -22,3 +22,26 @@ while x < 10 {
     print(x)
     x = x + 1
     }
+
+
+// For Loop
+
+var myArray = ["Atıl","Ahmet","İbrahim","Zeynep"]
+
+for name in myArray{
+    
+    print(name.uppercased())
+}
+
+
+var numArray = [10,20,30,40,50]
+
+for num in numArray{
+    
+    print(num*5)
+}
+ 
+
+for newNum in 1...10{
+    print(newNum)
+}
