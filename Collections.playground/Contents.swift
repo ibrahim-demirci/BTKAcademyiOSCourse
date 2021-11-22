@@ -50,3 +50,25 @@ let secondSet :Set = [50,60,70]
 
 
 let migratedSet = firstSet.union(secondSet)
+
+
+
+// Dictionary
+// key-value pairing
+
+let fruitArray = ["banana","strawberry","watermelon"]
+let caloriesArray = [250,300,550]
+
+fruitArray[0]
+caloriesArray[0]
+
+var fruitCaloriesDic = ["banana":250,"strawberry":300]
+fruitCaloriesDic["banana"]
+fruitCaloriesDic.keys
+fruitCaloriesDic.values
+
+fruitCaloriesDic["banana"] = 200
+
+
+var newDic = [20:30.2,30:40.3]
+
