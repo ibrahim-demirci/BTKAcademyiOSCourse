@@ -29,7 +29,6 @@ while x < 10 {
 var myArray = ["Atıl","Ahmet","İbrahim","Zeynep"]
 
 for name in myArray{
-    
     print(name.uppercased())
 }
 
@@ -37,14 +36,11 @@ for name in myArray{
 var numArray = [10,20,30,40,50]
 
 for num in numArray{
-    
     print(num*5)
 }
  
-
 for newNum in 1...10{
     print(newNum)
-    
 }
 
 
@@ -69,3 +65,6 @@ if myAge < 20{
     print("who are you bro")
 }
  
+
+
+
