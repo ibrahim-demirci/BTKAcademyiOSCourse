@@ -44,4 +44,28 @@ for num in numArray{
 
 for newNum in 1...10{
     print(newNum)
+    
 }
+
+
+// If Conditions
+  
+3 == 3
+
+
+// AND &&
+// OR ||
+
+3 == 3 && 4 == 4
+2 == 44 || 1 == 1
+
+var myAge = 100
+
+if myAge < 20{
+    print("too young")
+}else if myAge < 30{
+    print("you are in twenties")
+}else {
+    print("who are you bro")
+}
+ 
