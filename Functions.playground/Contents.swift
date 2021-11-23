@@ -30,3 +30,23 @@ func logicFunctiın(x:Int,y:Int) -> Bool{
 
 logicFunctiın(x: 4, y: 3)
 
+
+// Optionals
+var myName : String?
+myName?.uppercased()
+myName = "İbrahim"
+
+
+var inputNum = "İbrahim"
+
+// Force unwrapping
+// var res = Int(inputNum)! * 5
+
+var res = Int(inputNum) ?? 1 * 5
+
+if let newResult  = Int(inputNum){
+    newResult * 5
+}else {
+    print("wrong format")
+}
+  
