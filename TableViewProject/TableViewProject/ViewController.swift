@@ -55,6 +55,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            heroNames.remove(at: indexPath.row)
+            heroImages.remove(at: indexPath.row)
+            
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            
+        }
+    }
+    
 
 }
 
