@@ -7,7 +7,8 @@
 
 import Foundation
 
-let katarina = User(name: "Katarina", age: 35, work: "Worker")
+let katarina = User(name: "Katarina", age: 35, work: "Worker",type: .AdminUser)
 
 print("\(katarina.name)")
-
+katarina.sampleFunc()
+print(katarina.type)
