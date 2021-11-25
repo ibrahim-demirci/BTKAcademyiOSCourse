@@ -9,8 +9,18 @@ import Foundation
 
 class User {
     
-    var name = ""
-    var age = 0
-    var work = ""
+    var name :String = ""
+    var age :Int = 0
+    var work :String = ""
+    
+    //Initializer
+    
+    init(name : String, age : Int, work : String) {
+        
+        self.name = name
+        self.age = age
+        self.work = work
+
+    }
     
 }

@@ -7,14 +7,7 @@
 
 import Foundation
 
-print("Hello, World!")
+let katarina = User(name: "Katarina", age: 35, work: "Worker")
 
-
-let atil = User()
-
-atil.name = "Atil"
-atil.age = 30
-atil.work = "Engineer"
-
-let katarina = User()
+print("\(katarina.name)")
 
