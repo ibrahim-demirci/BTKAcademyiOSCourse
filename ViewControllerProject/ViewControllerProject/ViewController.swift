@@ -17,8 +17,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print("DidLoad")
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("DidAppear")
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        print("DidDisappear")
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        print("WillDisappear")
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        print("WillAppear")
+        textField.text = ""
+    }
+    
     @IBAction func controlClicked(_ sender: Any) {
         password = textField.text!
         performSegue(withIdentifier: "toSecondVC", sender: nil)
