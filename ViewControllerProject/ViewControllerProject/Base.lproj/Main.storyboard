@@ -74,7 +74,7 @@
                     <connections>
                         <outlet property="firstLabel" destination="L8i-nY-oXE" id="WGM-GH-kpW"/>
                         <outlet property="textField" destination="O8U-Hx-Yzr" id="XG5-m1-htP"/>
-                        <segue destination="s39-kO-ZjA" kind="show" id="tSV-kM-wyu"/>
+                        <segue destination="s39-kO-ZjA" kind="show" identifier="toSecondVC" id="tSV-kM-wyu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -146,7 +146,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="PBC-WI-6jT"/>
+        <segue reference="tSV-kM-wyu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

@@ -11,9 +11,14 @@ class SecondViewController: UIViewController {
 
     @IBOutlet weak var secondLabel: UILabel!
     @IBOutlet weak var findedPassLabel: UILabel!
+    
+    var gettedPass = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        findedPassLabel.text = gettedPass
+    
         // Do any additional setup after loading the view.
     }
     
