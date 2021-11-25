@@ -15,6 +15,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     @IBOutlet weak var tableView: UITableView!
+    var heroImages = [String]()
+    var heroNames = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -23,12 +26,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
     
-        var heroNames = [String]()
+        
         heroNames.append("Batman")
         heroNames.append("Superman")
         heroNames.append("Ironman")
         
-        var heroImages = [String]()
+       
         heroImages.append("batman")
         heroImages.append("superman")
         heroImages.append("ironman")
@@ -41,13 +44,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 30
+        return self.heroNames.count
         
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
-        cell.textLabel?.text = "Test"
+        cell.textLabel?.text = heroNames[indexPath.row]
         return cell
         
     }
