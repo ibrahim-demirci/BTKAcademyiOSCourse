@@ -10,8 +10,11 @@ import Foundation
 let katarina = SuperUser(name: "Katarina", age: 35, work: "Worker",type: .AdminUser)
 let john = User(name: "John", age: 35, work: "Engineer", type: .NormalUser)
 
-print("\(katarina.name)")
 katarina.sampleFunc()
-print(katarina.type)
 katarina.newFunc()
+
+print(katarina.type)
+
+
 print(john.name)
+print(john.getHairColor())
