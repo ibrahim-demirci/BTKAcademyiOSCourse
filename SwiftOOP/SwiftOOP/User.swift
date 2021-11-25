@@ -14,23 +14,18 @@ enum UserType{
 }
 
 class User {
-    
     var name :String
     var age :Int
     var work :String
     var type : UserType
     
-    
-    
     //Initializer
-    
     init(name : String, age : Int, work : String, type : UserType) {
         
         self.name = name
         self.age = age
         self.work = work
         self.type = type
-
     }
     
     func sampleFunc(){
