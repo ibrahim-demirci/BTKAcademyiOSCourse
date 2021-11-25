@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var tableView: UITableView!
     var cities = [City]()
+    var selectedCity : City?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +36,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = "Test"
+        cell.textLabel?.text = cities[indexPath.row].name
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toDetailsVC", sender: nil)
+        selectedCity = cities[indexPath.row]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if segue.identifier == "toDetailsVC" {
+            let detailsVc = segue.destination as! DetailsViewController
+            detailsVc.selectedCity = selectedCity
+            
+        }
         
     }
 
