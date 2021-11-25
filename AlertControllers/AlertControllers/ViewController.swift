@@ -19,15 +19,57 @@ class ViewController: UIViewController {
 
     @IBAction func signUpClick(_ sender: Any) {
         
-        let alertMessage = UIAlertController(title: "Fail", message: "Email wrong", preferredStyle: UIAlertController.Style.alert)
         
-        let okButton = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (UIAlertAction) in
-            // When clicked
-            print("Ok Clicked")
+        if emailField.text == ""{
+            //Email empty
+            let alertMessage = UIAlertController(title: "Fail", message: "Email wrong", preferredStyle: UIAlertController.Style.alert)
+            
+            let okButton = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (UIAlertAction) in
+                // When clicked
+                print("Ok Clicked")
+            }
+            
+            alertMessage.addAction(okButton)
+            self.present(alertMessage, animated: true, completion: nil)
+        
+        }else if passwordField.text == ""{
+            //Password empty
+            let alertMessage = UIAlertController(title: "Fail", message: "Password wrong", preferredStyle: UIAlertController.Style.alert)
+            
+            let okButton = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (UIAlertAction) in
+                // When clicked
+                print("Ok Clicked")
+            }
+            
+            alertMessage.addAction(okButton)
+            self.present(alertMessage, animated: true, completion: nil)
+        
+        }else if confirmPasswordField.text == "" || passwordField.text != confirmPasswordField.text{
+            
+            let alertMessage = UIAlertController(title: "Fail", message: "Passwords not matching", preferredStyle: UIAlertController.Style.alert)
+            
+            let okButton = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (UIAlertAction) in
+                // When clicked
+                print("Ok Clicked")
+            }
+            
+            alertMessage.addAction(okButton)
+            self.present(alertMessage, animated: true, completion: nil)
+            
+        }else {
+            
+            let alertMessage = UIAlertController(title: "Success", message: "Congratulations", preferredStyle: UIAlertController.Style.alert)
+            
+            let okButton = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (UIAlertAction) in
+                // When clicked
+                print("Ok Clicked")
+            }
+            
+            alertMessage.addAction(okButton)
+            self.present(alertMessage, animated: true, completion: nil)
         }
         
-        alertMessage.addAction(okButton)
-        self.present(alertMessage, animated: true, completion: nil)
+        
     }
     
 }
