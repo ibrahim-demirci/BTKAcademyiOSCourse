@@ -35,10 +35,21 @@ class ViewController: UIViewController {
         noteLabel.text = "Goal: \(noteTextField.text!)"
         dateLabel.text = "Deadlane: \(dateTextField.text!)"
     }
+    
     @IBAction func deleteData(_ sender: Any) {
         
-        UserDefaults.standard.removeObject(forKey: "note")
-        UserDefaults.standard.removeObject(forKey: "date")
+        
+        let note = UserDefaults.standard.object(forKey: "note")
+        let date = UserDefaults.standard.object(forKey: "date")
+            
+        if (note as? String) != nil{
+            UserDefaults.standard.removeObject(forKey: "note")
+        }
+        if( date as? String) != nil {
+            UserDefaults.standard.removeObject(forKey: "date")
+
+        }
+        
     }
     
 }
