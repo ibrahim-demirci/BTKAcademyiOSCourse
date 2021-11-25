@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UserDefaults" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8L3-tF-kF6">
+                                <rect key="frame" x="49" y="93" width="317" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="XGB-Iz-lWo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Note Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfX-tb-VYl">
+                                <rect key="frame" x="49" y="153" width="317" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="6Cj-xT-Sns"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZX5-wB-VWs">
+                                <rect key="frame" x="49" y="234" width="148" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="148" id="fkq-n4-R5t"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Save"/>
+                                <connections>
+                                    <action selector="save:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JyP-3w-9El"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BuH-3R-auR">
+                                <rect key="frame" x="218" y="234" width="148" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Delete"/>
+                                <connections>
+                                    <action selector="deleteData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h5O-EH-Y5M"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Goal :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mx8-DV-PkR">
+                                <rect key="frame" x="35" y="318" width="345" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Deadline:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNh-9j-fcZ">
+                                <rect key="frame" x="35" y="364" width="345" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mfX-tb-VYl" firstAttribute="trailing" secondItem="BuH-3R-auR" secondAttribute="trailing" id="1oY-CB-zbe"/>
+                            <constraint firstItem="Mx8-DV-PkR" firstAttribute="leading" secondItem="DNh-9j-fcZ" secondAttribute="leading" id="6ky-G6-iP2"/>
+                            <constraint firstItem="BuH-3R-auR" firstAttribute="baseline" secondItem="ZX5-wB-VWs" secondAttribute="firstBaseline" id="J7N-Kv-gzk"/>
+                            <constraint firstItem="8L3-tF-kF6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="49" id="JaH-xu-2CI"/>
+                            <constraint firstItem="8L3-tF-kF6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="49" id="Ki8-0F-KRm"/>
+                            <constraint firstItem="8L3-tF-kF6" firstAttribute="leading" secondItem="mfX-tb-VYl" secondAttribute="leading" id="M44-bH-Gjg"/>
+                            <constraint firstItem="ZX5-wB-VWs" firstAttribute="baseline" secondItem="BuH-3R-auR" secondAttribute="baseline" id="MqZ-zk-i2S"/>
+                            <constraint firstItem="Mx8-DV-PkR" firstAttribute="top" secondItem="ZX5-wB-VWs" secondAttribute="bottom" constant="53" id="UjL-be-S28"/>
+                            <constraint firstItem="mfX-tb-VYl" firstAttribute="top" secondItem="8L3-tF-kF6" secondAttribute="bottom" constant="26" id="X7f-qU-Zvh"/>
+                            <constraint firstItem="mfX-tb-VYl" firstAttribute="leading" secondItem="ZX5-wB-VWs" secondAttribute="leading" id="aD8-eD-ADh"/>
+                            <constraint firstItem="8L3-tF-kF6" firstAttribute="trailing" secondItem="mfX-tb-VYl" secondAttribute="trailing" id="arA-V7-aDe"/>
+                            <constraint firstItem="ZX5-wB-VWs" firstAttribute="top" secondItem="mfX-tb-VYl" secondAttribute="bottom" constant="47" id="fcK-Tf-AOB"/>
+                            <constraint firstItem="8L3-tF-kF6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ioj-7A-ltv"/>
+                            <constraint firstItem="BuH-3R-auR" firstAttribute="leading" secondItem="ZX5-wB-VWs" secondAttribute="trailing" constant="21" id="jXC-R8-Qjv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DNh-9j-fcZ" secondAttribute="bottom" constant="437" id="lW8-LV-cVm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Mx8-DV-PkR" secondAttribute="bottom" constant="483" id="nSY-Ri-4QE"/>
+                            <constraint firstItem="Mx8-DV-PkR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="obo-PO-sIK"/>
+                            <constraint firstItem="DNh-9j-fcZ" firstAttribute="top" secondItem="ZX5-wB-VWs" secondAttribute="bottom" constant="99" id="tjW-Z9-sau"/>
+                            <constraint firstItem="mfX-tb-VYl" firstAttribute="centerX" secondItem="Mx8-DV-PkR" secondAttribute="centerX" id="vvO-ec-Jd1"/>
+                            <constraint firstItem="Mx8-DV-PkR" firstAttribute="trailing" secondItem="DNh-9j-fcZ" secondAttribute="trailing" id="xQK-Vs-4a4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="DNh-9j-fcZ" id="w3h-vQ-WQ7"/>
+                        <outlet property="dateTextField" destination="mfX-tb-VYl" id="jmE-02-B7R"/>
+                        <outlet property="noteLabel" destination="Mx8-DV-PkR" id="ky5-fs-vIT"/>
+                        <outlet property="noteTextField" destination="8L3-tF-kF6" id="oSF-BV-nz5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="97.767857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
