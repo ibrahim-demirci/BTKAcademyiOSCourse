@@ -17,6 +17,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     var heroImages = [String]()
     var heroNames = [String]()
+    var selectedName = ""
+    var selectedImage = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +64,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             heroImages.remove(at: indexPath.row)
             
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "toDetailVC", sender: nil)
+        selectedName = heroNames[ indexPath.row]
+        selectedImage = heroImages[indexPath.row]
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toDetailVC" {
+            let destinationVC = segue.destination as! DetailViewController
+            destinationVC.image = selectedImage
+            destinationVC.name = selectedName
             
         }
     }
