@@ -20,6 +20,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+        
+        
+    
+        var heroNames = [String]()
+        heroNames.append("Batman")
+        heroNames.append("Superman")
+        heroNames.append("Ironman")
+        
+        var heroImages = [String]()
+        heroImages.append("batman")
+        heroImages.append("superman")
+        heroImages.append("ironman")
+        
     }
     
     //numberOfRowsInSection -> How many rows
