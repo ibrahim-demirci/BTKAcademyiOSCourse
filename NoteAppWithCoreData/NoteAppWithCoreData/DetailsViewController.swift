@@ -18,12 +18,14 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
     var selectedTitle = ""
     var selectedID : UUID?
     
+    @IBOutlet weak var saveButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if selectedTitle != ""{
             // Core Data Fetch
-            
+            saveButton.isHidden = true
             if let uuidString = selectedID?.uuidString{
 
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -68,9 +70,10 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
                 
                 
             }
-            print(selectedID)
             
         } else {
+            saveButton.isHidden = false
+            saveButton.isEnabled = false
             titleField.text = ""
             priceField.text = ""
             sizeField.text = ""
@@ -106,6 +109,7 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         imageView.image = info[.originalImage] as? UIImage
+        saveButton.isEnabled = true
         self.dismiss(animated: true, completion: nil)
         
     }

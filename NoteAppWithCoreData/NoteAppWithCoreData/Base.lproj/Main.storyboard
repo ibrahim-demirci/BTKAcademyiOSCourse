@@ -112,6 +112,7 @@
                     <connections>
                         <outlet property="imageView" destination="tf3-Vq-JgT" id="dfx-ff-gWU"/>
                         <outlet property="priceField" destination="NPh-sj-xp7" id="rOu-Rf-NVM"/>
+                        <outlet property="saveButton" destination="Wpj-GL-qko" id="KhO-2x-6px"/>
                         <outlet property="sizeField" destination="TIO-Bu-fR3" id="wFL-ZF-pVU"/>
                         <outlet property="titleField" destination="hDj-E8-wfi" id="xen-c9-K63"/>
                     </connections>
