@@ -29,7 +29,6 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     
-    
     @objc func closeKeyboard(){
         view.endEditing(true)
     }
@@ -79,11 +78,10 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
         }catch{
             print("fail to save")
         }
+        
+        NotificationCenter.default.post(name: NSNotification.Name("dataSaved"), object: nil)
+        self.navigationController?.popViewController(animated: true)
        
-        
-        
-       
-        
         
     }
     

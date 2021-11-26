@@ -27,6 +27,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(getDatas), name: NSNotification.Name("dataSaved"), object: nil)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titles.count
     }
@@ -45,7 +50,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-    func getDatas(){
+    @objc func getDatas(){
+        
+        titles.removeAll(keepingCapacity: false)
+        ids.removeAll(keepingCapacity: false)
+        
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -54,8 +63,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // When big data operations set as false
         fetchRequest.returnsObjectsAsFaults = false
-        
-        
         
         do{
             let results = try  context.fetch(fetchRequest)
