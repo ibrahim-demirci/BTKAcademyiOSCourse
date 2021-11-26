@@ -14,6 +14,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var titles = [String]()
     var ids = [UUID]()
+    var selectedTitle = ""
+    var selectedUUID : UUID?
     
     
     override func viewDidLoad() {
@@ -27,25 +29,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(getDatas), name: NSNotification.Name("dataSaved"), object: nil)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titles.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = UITableViewCell()
-        cell.textLabel?.text = titles[indexPath.row]
-        return cell
     }
 
     
     @objc func addItem(){
-        
+        self.selectedTitle = ""
         performSegue(withIdentifier: "toDetailsVC", sender: nil)
     }
     
@@ -67,24 +57,54 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         do{
             let results = try  context.fetch(fetchRequest)
             
-            for item in results as! [NSManagedObject]{
-                
-                if let title = item.value(forKey: "title") as? String{
-                    titles.append(title)
-                
-                }
-                if let id = item.value(forKey: "id") as? UUID{
-                    ids.append(id)
+            if results.count > 0 {
+                for item in results as! [NSManagedObject]{
                     
+                    if let title = item.value(forKey: "title") as? String{
+                        titles.append(title)
+                    
+                    }
+                    if let id = item.value(forKey: "id") as? UUID{
+                        ids.append(id)
+                        
+                    }
                 }
+                tableView.reloadData()
+                
             }
-            tableView.reloadData()
             
         }catch{
             
             print("error")
             
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailsVC"{
+            let dest = segue.destination as! DetailsViewController
+            dest.selectedTitle = self.selectedTitle
+            dest.selectedID = self.selectedUUID
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        selectedTitle = titles[indexPath.row]
+        selectedUUID = ids[indexPath.row]
+        performSegue(withIdentifier: "toDetailsVC", sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return titles.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = UITableViewCell()
+        cell.textLabel?.text = titles[indexPath.row]
+        return cell
     }
 
 }
