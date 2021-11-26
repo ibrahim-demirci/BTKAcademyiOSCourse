@@ -96,6 +96,52 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         performSegue(withIdentifier: "toDetailsVC", sender: nil)
     }
     
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete{
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Shop")
+            let uuidString = ids[indexPath.row].uuidString
+            
+            fetchRequest.predicate = NSPredicate(format: "id = %@", uuidString)
+            fetchRequest.returnsObjectsAsFaults = false
+            
+            do{
+                let results = try context.fetch(fetchRequest)
+                if results.count > 0 {
+                    for item in results as! [NSManagedObject]{
+                        
+                        if let id = item.value(forKey: "id") as? UUID{
+                            if id == ids[indexPath.row]{
+                                
+                                context.delete(item)
+                                titles.remove(at: indexPath.row)
+                                ids.remove(at: indexPath.row)
+                                self.tableView.reloadData()
+                                
+                                do{
+                                    try context.save()
+                                    
+                                } catch{
+                                    print("fail to context.save()")
+                                }
+                                
+                                break
+                            }
+                        }
+                    }
+                }
+            }catch{
+                print("fail to delete")
+            }
+            
+        }
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titles.count
     }
