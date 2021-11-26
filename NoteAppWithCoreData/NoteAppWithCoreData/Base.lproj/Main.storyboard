@@ -33,7 +33,7 @@
                     <navigationItem key="navigationItem" id="7p2-wV-0To"/>
                     <connections>
                         <outlet property="tableView" destination="7oh-Jf-4fB" id="jpe-k4-iTN"/>
-                        <segue destination="dGO-7d-Agr" kind="show" identifier="toDetaisVC" id="qwx-Oc-ZWh"/>
+                        <segue destination="dGO-7d-Agr" kind="show" identifier="toDetailsVC" id="qwx-Oc-ZWh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -61,11 +61,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Size" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TIO-Bu-fR3">
-                                <rect key="frame" x="36" y="568" width="343" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wpj-GL-qko">
                                 <rect key="frame" x="123" y="665" width="169" height="57"/>
                                 <constraints>
@@ -74,6 +69,11 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Save"/>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Size" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TIO-Bu-fR3">
+                                <rect key="frame" x="36" y="568" width="343" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b4W-ep-zge"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -99,9 +99,9 @@
                     <navigationItem key="navigationItem" id="vSK-wt-umi"/>
                     <connections>
                         <outlet property="imageView" destination="tf3-Vq-JgT" id="dfx-ff-gWU"/>
-                        <outlet property="price" destination="NPh-sj-xp7" id="39g-xi-lpq"/>
-                        <outlet property="size" destination="TIO-Bu-fR3" id="zwt-Ne-mxW"/>
-                        <outlet property="title" destination="hDj-E8-wfi" id="sa2-wV-eaA"/>
+                        <outlet property="priceField" destination="NPh-sj-xp7" id="rOu-Rf-NVM"/>
+                        <outlet property="sizeField" destination="TIO-Bu-fR3" id="wFL-ZF-pVU"/>
+                        <outlet property="titleField" destination="hDj-E8-wfi" id="xen-c9-K63"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jh1-ZV-uAv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
