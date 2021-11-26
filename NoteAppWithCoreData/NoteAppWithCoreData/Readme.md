@@ -1,14 +1,14 @@
 ## Shopping Note App
 
-#### Using
+### Using
 
 Swift, TableView, CoreData, Pick an Image, Notification Center
 
-##### Entity Model
+### Entity Model
 
 ![EntityStructure](./Pictures/entity.png)
 
-#### App Screenshots
+### App Screenshots
 
 ![EntityStructure](./Pictures/delete.png)
 
