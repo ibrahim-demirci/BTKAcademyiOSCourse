@@ -10,8 +10,6 @@ Swift, TableView, CoreData, Pick an Image, Notification Center
 
 ### App Screenshots
 
-![EntityStructure](./Pictures/delete.png)
-
 <p float="left">
   <img src="./pictures/note-add-screen.png" alt="add" style="zoom:30%;" />
   <img src="./pictures/delete.png" alt="delete" style="zoom:30%;" />
