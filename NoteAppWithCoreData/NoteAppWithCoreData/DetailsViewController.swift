@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -50,6 +51,39 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     
-
+    @IBAction func save(_ sender: Any) {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let item = NSEntityDescription.insertNewObject(forEntityName: "Shop", into: context)
+        
+        item.setValue(titleField.text, forKey: "title")
+        item.setValue(sizeField.text, forKey: "size")
+        item.setValue(UUID(), forKey: "id")
+        
+        if let price = Int(priceField.text!){
+            
+            item.setValue(price, forKey: "price")
+        }
+        
+        // Image operations
+        let data = imageView.image!.jpegData(compressionQuality: 0.5)
+        item.setValue(data, forKey: "image")
+        
+        do{
+            try  context.save()
+            print("saved")
+        }catch{
+            print("fail to save")
+        }
+       
+        
+        
+       
+        
+        
+    }
+    
   
 }
