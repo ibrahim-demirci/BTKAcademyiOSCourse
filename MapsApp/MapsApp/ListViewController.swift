@@ -14,6 +14,12 @@ class ListViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     
     var titlesArray = [String]()
     var idArray = [UUID]()
+    
+    var selectedTitle = ""
+    var selectedID: UUID?
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,6 +72,7 @@ class ListViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     
     
     @objc func goToMaps(){
+        selectedTitle = ""
         performSegue(withIdentifier: "toMapsVC", sender: nil)
     }
     
@@ -80,6 +87,28 @@ class ListViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         let cell = UITableViewCell()
         cell.textLabel?.text = titlesArray[indexPath.row]
         return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        selectedTitle = titlesArray[indexPath.row]
+        selectedID = idArray[indexPath.row]
+        performSegue(withIdentifier: "toMapsVC", sender: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toMapsVC"{
+            let destination = segue.destination as! MapsViewController
+            destination.selectedID = self.selectedID
+            destination.selectedTitle = self.selectedTitle
+            
+            
+            
+        }
+       
     }
     
 
