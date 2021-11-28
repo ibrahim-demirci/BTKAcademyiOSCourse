@@ -51,7 +51,6 @@ class MapsViewController: UIViewController ,MKMapViewDelegate, CLLocationManager
         
         if selectedTitle != ""{
             //Fetch data
-            
             if let uuidString = selectedID?.uuidString{
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 let context = appDelegate.persistentContainer.viewContext
@@ -86,16 +85,16 @@ class MapsViewController: UIViewController ,MKMapViewDelegate, CLLocationManager
                                             titleTextView.text = annotationTitle
                                             describtionTextView.text = annotationSubtitle
                                             
+                                            locationManager.stopUpdatingLocation()
+                                            let span = MKCoordinateSpan(latitudeDelta: 0.04, longitudeDelta: 0.04)
+                                            let region = MKCoordinateRegion(center: coordinate, span: span)
+                                            
+                                            mapView.setRegion(region, animated: true)
+                                            
                                         }
                                     }
                                 }
                             }
-                           
-                           
-                            
-                            
-                            
-                            
                             
                         }
                     }
@@ -138,13 +137,16 @@ class MapsViewController: UIViewController ,MKMapViewDelegate, CLLocationManager
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 //        print(locations[0].coordinate.latitude)
 //        print(locations[0].coordinate.longitude)
-
-        let location = CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude)
         
-        let span = MKCoordinateSpan(latitudeDelta: 0.04, longitudeDelta: 0.04)
-        let region = MKCoordinateRegion(center: location, span: span)
+        if selectedTitle == ""{
+            let location = CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude)
+            
+            let span = MKCoordinateSpan(latitudeDelta: 0.04, longitudeDelta: 0.04)
+            let region = MKCoordinateRegion(center: location, span: span)
+            
+            mapView.setRegion(region, animated: true)
+        }
         
-        mapView.setRegion(region, animated: true)
     }
     
     
