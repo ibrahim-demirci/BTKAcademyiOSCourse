@@ -25,6 +25,11 @@ class MapsViewController: UIViewController ,MKMapViewDelegate, CLLocationManager
     var selectedTitle = ""
     var selectedID :UUID?
     
+    var annotationTitle = ""
+    var annotationSubtitle = ""
+    var annotationLatitude = Double()
+    var annotationLongitude = Double()
+    
     
     
     
@@ -48,9 +53,56 @@ class MapsViewController: UIViewController ,MKMapViewDelegate, CLLocationManager
             //Fetch data
             
             if let uuidString = selectedID?.uuidString{
-                    print(uuidString)
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let context = appDelegate.persistentContainer.viewContext
+                
+                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Place")
+                fetchRequest.predicate = NSPredicate(format: "id = %@", uuidString)
+                fetchRequest.returnsObjectsAsFaults = false
+                
+                
+                do{
+                    let results = try context.fetch(fetchRequest)
+                    
+                    if results.count > 0{
+                        for item in results as! [NSManagedObject]{
+                            
+                            if let titleFromCoreData = item.value(forKey: "title") as? String{
+                                annotationTitle = titleFromCoreData
+                                if let describtionFromCoreData = item.value(forKey: "describtion") as? String{
+                                    annotationSubtitle = describtionFromCoreData
+                                    if let latitudeFromCoreData = item.value(forKey: "latitude") as? Double{
+                                        annotationLatitude = latitudeFromCoreData
+                                        if let longitudeFromCoreData = item.value(forKey: "longitude") as? Double{
+                                            annotationLongitude = longitudeFromCoreData
+                                            
+                                            
+                                            let annotation = MKPointAnnotation()
+                                            annotation.title = annotationTitle
+                                            annotation.subtitle = annotationSubtitle
+                                            let coordinate = CLLocationCoordinate2D(latitude: annotationLatitude, longitude: annotationLongitude)
+                                            annotation.coordinate = coordinate
+                                            mapView.addAnnotation(annotation)
+                                            titleTextView.text = annotationTitle
+                                            describtionTextView.text = annotationSubtitle
+                                            
+                                        }
+                                    }
+                                }
+                            }
+                           
+                           
+                            
+                            
+                            
+                            
+                            
+                        }
+                    }
+                } catch{
+                    print("fail when fetch with uuid")
+                }
             }
-            titleTextView.text = selectedTitle
             
             
             
