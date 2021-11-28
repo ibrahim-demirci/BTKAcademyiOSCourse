@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import CoreData
 
 class ViewController: UIViewController ,MKMapViewDelegate, CLLocationManagerDelegate{
     
@@ -17,6 +18,10 @@ class ViewController: UIViewController ,MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var titleTextView: UITextField!
     @IBOutlet weak var describtionTextView: UITextField!
+    
+    var selectedLatitude = Double()
+    var selectedLongitude = Double()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +43,10 @@ class ViewController: UIViewController ,MKMapViewDelegate, CLLocationManagerDele
         if gestureRecognizer.state == .began{
             let touchedLocation = gestureRecognizer.location(in: mapView)
             let touchedCoordinate = mapView.convert(touchedLocation, toCoordinateFrom: mapView)
+            
+            
+            selectedLatitude = touchedCoordinate.latitude
+            selectedLongitude = touchedCoordinate.longitude
             
             let annotation = MKPointAnnotation()
             annotation.coordinate = touchedCoordinate
@@ -64,7 +73,30 @@ class ViewController: UIViewController ,MKMapViewDelegate, CLLocationManagerDele
     }
     
     
-
+    @IBAction func save(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let newPlace = NSEntityDescription.insertNewObject(forEntityName: "Place", into: context)
+        
+        newPlace.setValue(titleTextView.text, forKey:"title" )
+        newPlace.setValue(describtionTextView.text, forKey: "describtion")
+        newPlace.setValue(selectedLatitude, forKey: "latitude")
+        newPlace.setValue(selectedLongitude, forKey: "longitude")
+        newPlace.setValue(UUID(), forKey: "id")
+        
+        
+        do{
+            try context.save()
+            print("saved")
+            
+        } catch{
+            print("error when save")
+        }
+        
+        
+    }
+    
 
 }
 
