@@ -109,6 +109,29 @@ class MapsViewController: UIViewController ,MKMapViewDelegate, CLLocationManager
         }
     }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        let reuseID = "myAnnotation"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
+        
+        if pinView == nil{
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+            pinView?.canShowCallout = true
+            pinView?.tintColor = .green
+            
+            let button = UIButton(type: .detailDisclosure)
+            pinView?.rightCalloutAccessoryView = button
+            
+            
+        }else {
+            pinView?.annotation = annotation
+        }
+        
+        return pinView
+    }
+    
     
     @objc func addMarker(gestureRecognizer : UILongPressGestureRecognizer){
         if gestureRecognizer.state == .began{
