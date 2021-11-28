@@ -28,14 +28,14 @@ class ListViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(goToMaps))
         
-        
-        
         getDatasFromCoreData()
 
     }
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(getDatasFromCoreData), name: NSNotification.Name("savedPin"), object: nil)
+    }
     
-    
-    func getDatasFromCoreData(){
+    @objc func getDatasFromCoreData(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         

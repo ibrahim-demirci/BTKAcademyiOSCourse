@@ -59,7 +59,6 @@ class MapsViewController: UIViewController ,MKMapViewDelegate, CLLocationManager
                 fetchRequest.predicate = NSPredicate(format: "id = %@", uuidString)
                 fetchRequest.returnsObjectsAsFaults = false
                 
-                
                 do{
                     let results = try context.fetch(fetchRequest)
                     
@@ -75,20 +74,22 @@ class MapsViewController: UIViewController ,MKMapViewDelegate, CLLocationManager
                                         if let longitudeFromCoreData = item.value(forKey: "longitude") as? Double{
                                             annotationLongitude = longitudeFromCoreData
                                             
-                                            
+                                            //Define a annotation
                                             let annotation = MKPointAnnotation()
                                             annotation.title = annotationTitle
                                             annotation.subtitle = annotationSubtitle
                                             let coordinate = CLLocationCoordinate2D(latitude: annotationLatitude, longitude: annotationLongitude)
                                             annotation.coordinate = coordinate
                                             mapView.addAnnotation(annotation)
+                                            
+                                            //Fill TextAlings
                                             titleTextView.text = annotationTitle
                                             describtionTextView.text = annotationSubtitle
                                             
+                                            //Animate Map to pin location
                                             locationManager.stopUpdatingLocation()
                                             let span = MKCoordinateSpan(latitudeDelta: 0.04, longitudeDelta: 0.04)
                                             let region = MKCoordinateRegion(center: coordinate, span: span)
-                                            
                                             mapView.setRegion(region, animated: true)
                                             
                                         }
@@ -102,10 +103,6 @@ class MapsViewController: UIViewController ,MKMapViewDelegate, CLLocationManager
                     print("fail when fetch with uuid")
                 }
             }
-            
-            
-            
-            
         }else{
             // Adding new Data
             
@@ -170,6 +167,9 @@ class MapsViewController: UIViewController ,MKMapViewDelegate, CLLocationManager
         } catch{
             print("error when save")
         }
+        
+        NotificationCenter.default.post(name: NSNotification.Name("savedPin"), object: nil)
+        navigationController?.popViewController(animated: true)
         
         
     }
