@@ -15,6 +15,9 @@ class ViewController: UIViewController ,MKMapViewDelegate, CLLocationManagerDele
     
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var titleTextView: UITextField!
+    @IBOutlet weak var describtionTextView: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -38,8 +41,8 @@ class ViewController: UIViewController ,MKMapViewDelegate, CLLocationManagerDele
             
             let annotation = MKPointAnnotation()
             annotation.coordinate = touchedCoordinate
-            annotation.title = "Selected"
-            annotation.subtitle = "Sample Subtitle"
+            annotation.title = titleTextView.text
+            annotation.subtitle = describtionTextView.text
             mapView.addAnnotation(annotation)
             
         }
