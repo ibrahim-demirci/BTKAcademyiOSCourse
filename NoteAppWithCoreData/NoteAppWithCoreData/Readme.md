@@ -6,7 +6,7 @@ Swift, TableView, CoreData, Pick an Image, Notification Center
 
 ##### Entity Model
 
-![EntityStructure](./Pictures/entity.png)
+![EntityStructure](./Pictures/entity.png){}
 
 #### App Screenshots
 
