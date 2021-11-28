@@ -24,8 +24,29 @@ class ViewController: UIViewController ,MKMapViewDelegate, CLLocationManagerDele
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
+        let gestureRecog = UILongPressGestureRecognizer(target: self, action: #selector(addMarker(gestureRecognizer: )))
+        gestureRecog.minimumPressDuration = 2
+        mapView.addGestureRecognizer(gestureRecog)
     }
     
+    
+    @objc func addMarker(gestureRecognizer : UILongPressGestureRecognizer){
+        if gestureRecognizer.state == .began{
+            let touchedLocation = gestureRecognizer.location(in: mapView)
+            let touchedCoordinate = mapView.convert(touchedLocation, toCoordinateFrom: mapView)
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = touchedCoordinate
+            annotation.title = "Selected"
+            annotation.subtitle = "Sample Subtitle"
+            mapView.addAnnotation(annotation)
+            
+        }
+        
+        
+        
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 //        print(locations[0].coordinate.latitude)
@@ -38,6 +59,8 @@ class ViewController: UIViewController ,MKMapViewDelegate, CLLocationManagerDele
         
         mapView.setRegion(region, animated: true)
     }
+    
+    
 
 
 }
