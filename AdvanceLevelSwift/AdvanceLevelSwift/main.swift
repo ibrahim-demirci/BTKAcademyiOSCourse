@@ -51,6 +51,27 @@ ibrahimStruct.increaseAge()
 print(ibrahimStruct.age)
 
 
+//Tuple
+
+var tuple = (10,20)
+print(tuple.0)
+
+var myTuple = (10,"text",true)
+print(myTuple.2)
+
+let myTuple2 = ("test",[1,2,3,4])
+print(myTuple2.1[2])
+
+let myNum : Int?
+let tupleDefined : (String,String)
+tupleDefined.1 = "test"
+
+
+let newTuple = (name:"ibrahim", surname: "demirci")
+print(newTuple.name)
+  
+
+
 
 
 
