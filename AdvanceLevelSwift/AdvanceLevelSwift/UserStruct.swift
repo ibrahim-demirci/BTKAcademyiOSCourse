@@ -14,4 +14,9 @@ struct UserStruct {
     var age : Int
     var business : String
     
+    
+    mutating func increaseAge(){
+        self.age += 1
+    }
+    
 }

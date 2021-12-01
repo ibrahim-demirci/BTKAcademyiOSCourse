@@ -20,28 +20,35 @@ print(ibrahimClass.name)
 print(ibrahimStruct.name)
 
 
+//ibrahimClass.age = 33
+//print(ibrahimClass.age)
 
-ibrahimClass.age = 33
-print(ibrahimClass.age)
-
-ibrahimStruct.age = 35
-print(ibrahimStruct.age)
+//ibrahimStruct.age = 35
+//print(ibrahimStruct.age)
 
 
 // Reference diff Value
 
-let ibrahimClassCopy = ibrahimClass
-var ibrahimStructCopy = ibrahimStruct
+//let ibrahimClassCopy = ibrahimClass
+//var ibrahimStructCopy = ibrahimStruct
 
-print(ibrahimClassCopy.age)
-print(ibrahimStructCopy.age)
+//print(ibrahimClassCopy.age)
+//print(ibrahimStructCopy.age)
 
-ibrahimClassCopy.age = 55
-ibrahimStructCopy.age = 55
+//ibrahimClassCopy.age = 55
+//ibrahimStructCopy.age = 55
+
+//print(ibrahimClass.age)
+//print(ibrahimStruct.age)
 
 print(ibrahimClass.age)
-print(ibrahimStruct.age)
+ibrahimClass.increaseAge()
+print(ibrahimClass.age)
 
+
+print(ibrahimStruct.age)
+ibrahimStruct.increaseAge()
+print(ibrahimStruct.age)
 
 
 
