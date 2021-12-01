@@ -71,6 +71,27 @@ let newTuple = (name:"ibrahim", surname: "demirci")
 print(newTuple.name)
   
 
+// Guard Let
+
+let num = "5"
+
+func convertToIntUsingIfLet(num : String) -> Int{
+    if let myInt = Int(num){
+        return myInt
+    }else{
+        return 0
+    }
+}
+
+func convertToIntUsingGuardLet(num : String) -> Int{
+    guard let myInt = Int(num) else {
+        return 0
+    }
+    return myInt
+}
+print(convertToIntUsingIfLet(num: num))
+print(convertToIntUsingGuardLet(num: num))
+
 
 
 
