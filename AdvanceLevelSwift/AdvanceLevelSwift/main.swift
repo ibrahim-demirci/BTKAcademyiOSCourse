@@ -93,9 +93,19 @@ print(convertToIntUsingIfLet(num: num))
 print(convertToIntUsingGuardLet(num: num))
 
 
+//Switch - Case
+
+var dayNum = 2
+var dayString = ""
+
+switch dayNum {
+case 1:
+    dayString = "monday"
+default: dayString = "nothinng"
+}
 
 
-
+print(dayString)
 
 
 
