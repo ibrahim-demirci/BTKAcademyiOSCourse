@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  PhotoShareAppFirebase
 //
-//  Created by İbrahim Demirci on 2.12.2021.
+//  Created by İbrahim Demirci on 3.12.2021.
 //
 
 import UIKit
