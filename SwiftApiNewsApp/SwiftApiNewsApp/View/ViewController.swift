@@ -22,7 +22,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         
+        let nib = UINib(nibName: "DempTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "DemoTableViewCell")
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = UITableView.automaticDimension
+        
+        
         getNews()
+        
+        
         
         
     }
@@ -44,10 +53,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell()
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DemoTableViewCell",for: indexPath) as! DempTableViewCell
+        
+        
+        
+        
+        //let cell = UITableViewCell()
         let newsViewModel = self.newsTableViewModel.newsAtIndexPath(indexPath.row)
-        cell.textLabel?.text = "\(newsViewModel.title)"
-        cell.detailTextLabel?.text = "\(newsViewModel.story)"
+        cell.title.text = "\(newsViewModel.title)"
+        cell.story.text = "\(newsViewModel.story)"
+        //cell.textLabel?.text = "\(newsViewModel.title)"
+        //cell.textLabel?.text = "\(newsViewModel.title)"
+        //cell.detailTextLabel?.text = "\(newsViewModel.story)"
         return cell
         
         
@@ -55,6 +73,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsTableViewModel == nil ? 0 :  self.newsTableViewModel.numberOfRowsInSection()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
     

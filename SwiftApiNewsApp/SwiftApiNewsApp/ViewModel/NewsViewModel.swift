@@ -10,6 +10,10 @@ import Foundation
 struct NewsTableViewModel {
     
     let newsList : [News]
+    
+}
+
+extension NewsTableViewModel{
     func numberOfRowsInSection() -> Int {
         return self.newsList.count
     }
@@ -21,7 +25,6 @@ struct NewsTableViewModel {
 }
 
 struct NewsViewModel{
-    
     let news : News
     
     var title : String {
