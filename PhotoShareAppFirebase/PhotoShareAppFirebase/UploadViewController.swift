@@ -56,7 +56,26 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                     imageRef.downloadURL { url, error in
                         if error == nil{
                             let imageUrl = url?.absoluteString
-                            print(imageUrl)
+                            
+                            if let imageUrl = imageUrl {
+                                
+                                let firestoreDatabase = Firestore.firestore()
+                                
+                                let firestorePost = ["url": imageUrl, "comment":  self.commentTextView.text, "email": Auth.auth().currentUser!.email,"date": FieldValue.serverTimestamp() ] as [String:Any]
+                                                     
+                                
+                                
+                                firestoreDatabase.collection("Post").addDocument(data: firestorePost) { error in
+                                    if error != nil {
+                                        self.errorMessage(titleInput: "Error", messageInput: error?.localizedDescription ?? "Fail to save")
+                                    }else {
+                                        
+                                    }
+                                }
+                                
+                            }
+                            
+                           
                         }
                     }
                 }
