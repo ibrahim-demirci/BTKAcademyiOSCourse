@@ -19,6 +19,23 @@ class ViewController: UIViewController {
     }
 
     @IBAction func signIn(_ sender: Any) {
+        if emailTextField.text != "" && passwordTextField.text != ""{
+            //Sign User
+            Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { signResult, error in
+                if error != nil {
+                    self.errorMessage(titleInput: "Fail", messageInput: error?.localizedDescription ?? "Try Again")
+                }else {
+                    self.performSegue(withIdentifier: "toFeedVC", sender: nil)
+                }
+            }
+            
+            
+        }else{
+            //Error
+            errorMessage(titleInput: "Fail", messageInput: "Enter email and password")
+        }
+        
+        
     }
     @IBAction func signUp(_ sender: Any) {
         
@@ -33,8 +50,6 @@ class ViewController: UIViewController {
                     self.performSegue(withIdentifier: "toFeedVC", sender: nil)
                 }
             }
-            
-            
         }else{
             //Error
             errorMessage(titleInput: "Fail", messageInput: "Enter email and password")
