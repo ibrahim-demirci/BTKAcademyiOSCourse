@@ -17,5 +17,9 @@ class SettingsViewController: UIViewController {
     
 
 
-
+    @IBAction func logOut(_ sender: Any) {
+        
+        performSegue(withIdentifier: "toVC", sender: nil)
+    }
+    
 }
