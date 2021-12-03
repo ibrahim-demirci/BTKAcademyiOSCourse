@@ -45,11 +45,13 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         if let data = imageView.image?.jpegData(compressionQuality: 0.5){
             
-            let imageRef = mediaFolder.child("image.jpg")
+            let uuid = UUID().uuidString
+            
+            
+            let imageRef = mediaFolder.child("\(uuid).jpg")
             imageRef.putData(data, metadata: nil) { metaData, error in
                 if error != nil {
-                    print(error?.localizedDescription ?? "Try Again")
-                    
+                    self.errorMessage(titleInput: "Fail", messageInput: error?.localizedDescription ?? "Upload Image")
                 }else{
                     imageRef.downloadURL { url, error in
                         if error == nil{
@@ -60,6 +62,15 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                 }
             }
         }
+        
+    }
+    
+    func errorMessage(titleInput: String, messageInput: String){
+        let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: UIAlertController.Style.alert)
+        let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+        
         
     }
     
