@@ -166,7 +166,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="2ig-CH-6uI">
             <objects>
-                <tabBarController id="iKO-R1-jTh" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="iKO-R1-jTh" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="hRc-vw-ZVR"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dnl-c8-mLJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -185,6 +185,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="dpK-7k-wBz"/>
         <segue reference="gHy-VB-6rS"/>
     </inferredMetricsTieBreakers>
     <resources>
