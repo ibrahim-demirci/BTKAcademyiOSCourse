@@ -13,6 +13,8 @@
 		0A453F3027597D3C00536336 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A453F2E27597D3C00536336 /* Main.storyboard */; };
 		0A453F3227597D3D00536336 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A453F3127597D3D00536336 /* Assets.xcassets */; };
 		0A453F3527597D3D00536336 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A453F3327597D3D00536336 /* LaunchScreen.storyboard */; };
+		0A453F3D27597D7900536336 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A453F3C27597D7900536336 /* GoogleService-Info.plist */; };
+		76EF3B8C3C3817C8E60EE941 /* Pods_PhotoShareAppFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C535AFE016DE675697690B /* Pods_PhotoShareAppFirebase.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,10 @@
 		0A453F3127597D3D00536336 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A453F3427597D3D00536336 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A453F3627597D3D00536336 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A453F3C27597D7900536336 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1A6288F5076F31A3F3475A1F /* Pods-PhotoShareAppFirebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoShareAppFirebase.debug.xcconfig"; path = "Target Support Files/Pods-PhotoShareAppFirebase/Pods-PhotoShareAppFirebase.debug.xcconfig"; sourceTree = "<group>"; };
+		C0D1931C8020AC48C226CE39 /* Pods-PhotoShareAppFirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoShareAppFirebase.release.xcconfig"; path = "Target Support Files/Pods-PhotoShareAppFirebase/Pods-PhotoShareAppFirebase.release.xcconfig"; sourceTree = "<group>"; };
+		E2C535AFE016DE675697690B /* Pods_PhotoShareAppFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoShareAppFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76EF3B8C3C3817C8E60EE941 /* Pods_PhotoShareAppFirebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,8 @@
 			children = (
 				0A453F2727597D3C00536336 /* PhotoShareAppFirebase */,
 				0A453F2627597D3C00536336 /* Products */,
+				5AAF14C168F9EEF5AB841929 /* Pods */,
+				76473163B0A3A08366F68831 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +72,27 @@
 				0A453F3127597D3D00536336 /* Assets.xcassets */,
 				0A453F3327597D3D00536336 /* LaunchScreen.storyboard */,
 				0A453F3627597D3D00536336 /* Info.plist */,
+				0A453F3C27597D7900536336 /* GoogleService-Info.plist */,
 			);
 			path = PhotoShareAppFirebase;
+			sourceTree = "<group>";
+		};
+		5AAF14C168F9EEF5AB841929 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1A6288F5076F31A3F3475A1F /* Pods-PhotoShareAppFirebase.debug.xcconfig */,
+				C0D1931C8020AC48C226CE39 /* Pods-PhotoShareAppFirebase.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		76473163B0A3A08366F68831 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E2C535AFE016DE675697690B /* Pods_PhotoShareAppFirebase.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A453F3927597D3D00536336 /* Build configuration list for PBXNativeTarget "PhotoShareAppFirebase" */;
 			buildPhases = (
+				4C24618938208823CFDA5E6A /* [CP] Check Pods Manifest.lock */,
 				0A453F2127597D3C00536336 /* Sources */,
 				0A453F2227597D3C00536336 /* Frameworks */,
 				0A453F2327597D3C00536336 /* Resources */,
+				6E1CD0AA5F30CA8C8F9CD259 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +156,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A453F3527597D3D00536336 /* LaunchScreen.storyboard in Resources */,
+				0A453F3D27597D7900536336 /* GoogleService-Info.plist in Resources */,
 				0A453F3227597D3D00536336 /* Assets.xcassets in Resources */,
 				0A453F3027597D3C00536336 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4C24618938208823CFDA5E6A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PhotoShareAppFirebase-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E1CD0AA5F30CA8C8F9CD259 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PhotoShareAppFirebase/Pods-PhotoShareAppFirebase-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PhotoShareAppFirebase/Pods-PhotoShareAppFirebase-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PhotoShareAppFirebase/Pods-PhotoShareAppFirebase-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0A453F2127597D3C00536336 /* Sources */ = {
@@ -284,6 +357,7 @@
 		};
 		0A453F3A27597D3D00536336 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A6288F5076F31A3F3475A1F /* Pods-PhotoShareAppFirebase.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,6 +386,7 @@
 		};
 		0A453F3B27597D3D00536336 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0D1931C8020AC48C226CE39 /* Pods-PhotoShareAppFirebase.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
