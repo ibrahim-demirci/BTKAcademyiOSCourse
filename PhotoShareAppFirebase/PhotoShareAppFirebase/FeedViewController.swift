@@ -12,22 +12,25 @@ import SDWebImage
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    /*
     var urlArray = [String]()
     var emailArray = [String]()
     var commentArray = [String]()
-     
+    */
+    var postArray = [Post]()
+    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return emailArray.count
+        return postArray.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",for : indexPath) as! FeedCell
-        cell.emailLabel.text = emailArray[indexPath.row]
-        cell.commentLabel.text = commentArray[indexPath.row]
-        cell.imageView?.sd_setImage(with: URL(string: self.urlArray[indexPath.row]))
+        cell.emailLabel.text = postArray[indexPath.row].email
+        cell.commentLabel.text = postArray[indexPath.row].comment
+        cell.imageView?.sd_setImage(with: URL(string: self.postArray[indexPath.row].url))
         //cell.imageView?.image = UIImage(named: "white")
         return cell
     }
@@ -47,7 +50,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func getFirestoreDatas(){
         let db = Firestore.firestore()
-        
+         
         db.collection("Post").order(by: "date",descending: true)
             .addSnapshotListener { snapshot, error in
             if error != nil{
@@ -55,22 +58,22 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             } else {
                 if snapshot?.isEmpty != true && snapshot != nil{
                     
-                    self.emailArray.removeAll(keepingCapacity: false)
-                    self.commentArray.removeAll(keepingCapacity: false)
-                    self.urlArray.removeAll(keepingCapacity: false)
-                    
+                    //self.emailArray.removeAll(keepingCapacity: false)
+                    //self.commentArray.removeAll(keepingCapacity: false)
+                    //self.urlArray.removeAll(keepingCapacity: false)
+                    self.postArray.removeAll(keepingCapacity: false)
+                     
                     
                     for document in snapshot!.documents{
-                        let docID = document.documentID
                         if let url = document.get("url") as? String{
-                            self.urlArray.append(url)
+                            if let comment = document.get("comment") as? String{
+                                if let email = document.get("email") as? String{
+                                    self.postArray.append(Post(email: email, comment: comment, url: url))
+                                }
+                            }
                         }
-                        if let comment = document.get("comment") as? String{
-                            self.commentArray.append(comment)
-                        }
-                        if let email = document.get("email") as? String{
-                            self.emailArray.append(email)
-                        }
+                        
+                        
                         //document.get("url")
                         
                     }

@@ -22,7 +22,6 @@ class SettingsViewController: UIViewController {
         
         do{
             try Auth.auth().signOut()
-            performSegue(withIdentifier: "toVC", sender: nil)
         } catch {
             print("error when log out")
         }
