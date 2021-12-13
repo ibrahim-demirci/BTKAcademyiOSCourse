@@ -15,7 +15,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        let parseObject = PFObject(className: "Fruit")
+        parseObject["name"] = "Banana"
+        parseObject["calories"] = 250
         
+        parseObject.saveInBackground { isSuccess, error in
+            if error != nil {
+                print(error?.localizedDescription)
+                
+            }else{
+                print("success")
+            }
+        }
         
     }
 
