@@ -24,14 +24,25 @@ class ViewController: UIViewController {
 
     @IBAction func signInClicked(_ sender: Any) {
         
-        performSegue(withIdentifier: "toTabBar", sender: nil)
+        if usernameField.text != "" && passwordField.text != ""{
+            PFUser.logInWithUsername(inBackground: usernameField.text!, password: passwordField.text!) { user, error in
+                
+                if error != nil {
+                    self.showAlert(title: "Error", message: error?.localizedDescription ?? "Error when sign in")
+                } else {
+                    self.performSegue(withIdentifier: "toTabBar", sender: nil)
+                }
+            }
+            
+        }else {
+            showAlert(title: "Empty", message: "Cant be empty username or password")
+        }
+        
     }
     
     @IBAction func signUpClicked(_ sender: Any) {
         
-        
         if usernameField.text != "" && passwordField.text != ""{
-            
             let user = PFUser()
             user.username = usernameField.text
             user.password = passwordField.text
