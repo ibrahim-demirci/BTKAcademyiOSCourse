@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0A74F7C02767919900473737 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A74F7BF2767919900473737 /* SettingsViewController.swift */; };
+		0A74F7C22767A18600473737 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A74F7C12767A18600473737 /* FeedTableViewCell.swift */; };
+		0A74F7C42767A2CC00473737 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A74F7C32767A2CC00473737 /* PostModel.swift */; };
 		0AC9DEBC2767532500C4FD06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC9DEBB2767532500C4FD06 /* AppDelegate.swift */; };
 		0AC9DEBE2767532500C4FD06 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC9DEBD2767532500C4FD06 /* SceneDelegate.swift */; };
 		0AC9DEC02767532500C4FD06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC9DEBF2767532500C4FD06 /* ViewController.swift */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		0A74F7BF2767919900473737 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0A74F7C12767A18600473737 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		0A74F7C32767A2CC00473737 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		0AC9DEB82767532500C4FD06 /* PhotoShareAppParse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoShareAppParse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AC9DEBB2767532500C4FD06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AC9DEBD2767532500C4FD06 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,12 +77,14 @@
 				0AC9DEBD2767532500C4FD06 /* SceneDelegate.swift */,
 				0AC9DEBF2767532500C4FD06 /* ViewController.swift */,
 				0AC9DEC12767532500C4FD06 /* Main.storyboard */,
+				0A74F7C12767A18600473737 /* FeedTableViewCell.swift */,
 				0A74F7BF2767919900473737 /* SettingsViewController.swift */,
 				0AC9DECF2767762100C4FD06 /* FeedViewController.swift */,
 				0AC9DED12767762C00C4FD06 /* UploadViewController.swift */,
 				0AC9DEC42767532600C4FD06 /* Assets.xcassets */,
 				0AC9DEC62767532600C4FD06 /* LaunchScreen.storyboard */,
 				0AC9DEC92767532600C4FD06 /* Info.plist */,
+				0A74F7C32767A2CC00473737 /* PostModel.swift */,
 			);
 			path = PhotoShareAppParse;
 			sourceTree = "<group>";
@@ -215,7 +221,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AC9DEC02767532500C4FD06 /* ViewController.swift in Sources */,
+				0A74F7C42767A2CC00473737 /* PostModel.swift in Sources */,
 				0AC9DED22767762C00C4FD06 /* UploadViewController.swift in Sources */,
+				0A74F7C22767A18600473737 /* FeedTableViewCell.swift in Sources */,
 				0AC9DEBC2767532500C4FD06 /* AppDelegate.swift in Sources */,
 				0AC9DED02767762100C4FD06 /* FeedViewController.swift in Sources */,
 				0AC9DEBE2767532500C4FD06 /* SceneDelegate.swift in Sources */,

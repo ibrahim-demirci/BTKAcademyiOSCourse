@@ -44,9 +44,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                 post["comment"] = commentField.text
                 post["username"] = PFUser.current()!.username
             
-        }
-        
-        
+            }
         }
         
         post.saveInBackground { isSuccess, error in
