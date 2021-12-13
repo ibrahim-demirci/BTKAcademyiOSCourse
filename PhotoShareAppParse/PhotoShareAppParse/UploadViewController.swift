@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -30,6 +31,41 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func shareClicked(_ sender: Any) {
         
+        shareButton.isEnabled = false
+        let post = PFObject(className: "Posts")
+        
+        let data = imageView.image?.jpegData(compressionQuality: 0.5)
+        
+        if let data = data{
+            if PFUser.current() != nil {
+                let parseImage = PFFileObject(name: "image.jpg", data: data)
+                
+                post["image"] = parseImage
+                post["comment"] = commentField.text
+                post["username"] = PFUser.current()!.username
+            
+        }
+        
+        
+        }
+        
+        post.saveInBackground { isSuccess, error in
+            
+            if error != nil {
+                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                alert.addAction(okButton)
+                self.present(alert, animated: true, completion: nil)
+            
+            } else {
+                self.commentField.text = ""
+                self.imageView.image = UIImage(named: "white")
+                self.tabBarController?.selectedIndex = 0
+                
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "post"), object: nil)
+                
+            }
+        }
         
     }
     
