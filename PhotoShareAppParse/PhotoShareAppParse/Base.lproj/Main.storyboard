@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mP1-Iv-b0K">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mP1-Iv-b0K">
                                 <rect key="frame" x="16" y="244" width="382" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -66,8 +66,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="emailField" destination="mP1-Iv-b0K" id="Jil-0z-cCo"/>
                         <outlet property="passwordField" destination="sZ3-Sp-aPi" id="th6-6i-Pc5"/>
+                        <outlet property="usernameField" destination="mP1-Iv-b0K" id="R4u-cN-KNA"/>
                         <segue destination="Vky-Qv-Q3o" kind="presentation" identifier="toTabBar" modalPresentationStyle="fullScreen" id="2Ez-Wo-LVX"/>
                     </connections>
                 </viewController>
@@ -89,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wmm-MN-ZEE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="967" y="373"/>
+            <point key="canvasLocation" x="967" y="417"/>
         </scene>
         <!--Feed-->
         <scene sceneID="VMB-Ym-EDL">
