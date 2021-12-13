@@ -15,16 +15,27 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let parseObject = PFObject(className: "Fruit")
-        parseObject["name"] = "Banana"
-        parseObject["calories"] = 250
+//        let parseObject = PFObject(className: "Fruit")
+//        parseObject["name"] = "Banana"
+//        parseObject["calories"] = 250
+//
+//        parseObject.saveInBackground { isSuccess, error in
+//            if error != nil {
+//                print(error?.localizedDescription ?? "error)
+//
+//            }else{
+//                print("success")
+//            }
+//        }
         
-        parseObject.saveInBackground { isSuccess, error in
-            if error != nil {
+        let query = PFQuery(className: "Fruit")
+//        query.whereKey("name", equalTo: "Apple")
+        query.whereKey("calories", greaterThan: 120)
+        query.findObjectsInBackground { objects, error in
+            if error != nil{
                 print(error?.localizedDescription)
-                
-            }else{
-                print("success")
+            } else{
+                print(objects)
             }
         }
         
