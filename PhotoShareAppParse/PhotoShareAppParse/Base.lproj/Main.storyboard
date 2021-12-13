@@ -65,6 +65,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WL8-jC-6xm" secondAttribute="trailing" constant="16" id="yE8-l1-aUK"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="oDo-QY-c0a"/>
                     <connections>
                         <outlet property="passwordField" destination="sZ3-Sp-aPi" id="th6-6i-Pc5"/>
                         <outlet property="usernameField" destination="mP1-Iv-b0K" id="R4u-cN-KNA"/>
@@ -91,6 +92,35 @@
             </objects>
             <point key="canvasLocation" x="967" y="417"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="fQr-3t-mx8">
+            <objects>
+                <viewController id="aLP-l8-rup" customClass="SettingsViewController" customModule="PhotoShareAppParse" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="38B-2D-Lk4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rh-Kl-ncW">
+                                <rect key="frame" x="179" y="433" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SignOut"/>
+                                <connections>
+                                    <action selector="signOut:" destination="aLP-l8-rup" eventType="touchUpInside" id="XM2-bq-PMy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LRp-dY-DV6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="opticaldisc" catalog="system" id="UsW-Wf-w5p"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toVC" modalPresentationStyle="fullScreen" id="kYG-Q3-WJx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lRP-F2-KaZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="967" y="-952"/>
+        </scene>
         <!--Feed-->
         <scene sceneID="VMB-Ym-EDL">
             <objects>
@@ -105,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCT-dQ-JKx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="967" y="-234"/>
+            <point key="canvasLocation" x="967" y="-269"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ufy-Vl-XaO">
@@ -120,6 +150,7 @@
                     <connections>
                         <segue destination="FFq-tv-PMH" kind="relationship" relationship="viewControllers" id="sce-jc-03y"/>
                         <segue destination="5V3-WT-Ilv" kind="relationship" relationship="viewControllers" id="r3B-8y-CM2"/>
+                        <segue destination="aLP-l8-rup" kind="relationship" relationship="viewControllers" id="Zfp-hh-Pch"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9HR-7e-EwQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -130,6 +161,7 @@
     <resources>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="opticaldisc" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
