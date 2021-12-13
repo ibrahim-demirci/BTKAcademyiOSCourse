@@ -61,7 +61,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                                 
                                 let firestoreDatabase = Firestore.firestore()
                                 
-                                let firestorePost = ["url": imageUrl, "comment":  self.commentTextView.text, "email": Auth.auth().currentUser!.email,"date": FieldValue.serverTimestamp() ] as [String:Any]
+                                let firestorePost = ["url": imageUrl, "comment":  self.commentTextView.text!, "email": Auth.auth().currentUser!.email!,"date": FieldValue.serverTimestamp() ] as [String:Any]
                                                      
                                 
                                 

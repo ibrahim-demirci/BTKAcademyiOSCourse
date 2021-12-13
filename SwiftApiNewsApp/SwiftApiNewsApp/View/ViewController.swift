@@ -28,7 +28,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
         
-        
         getNews()
         
         
